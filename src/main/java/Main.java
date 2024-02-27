@@ -1,6 +1,10 @@
 import patronesCreacionales.abstractFactory.Application;
 import patronesCreacionales.abstractFactory.MacOsFactory;
 import patronesCreacionales.abstractFactory.WindowsFactory;
+import patronesCreacionales.builder.Cocinero;
+import patronesCreacionales.builder.HawaianaPizzaBuilder;
+import patronesCreacionales.builder.Pizza;
+import patronesCreacionales.builder.PizzaBuilder;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,6 +18,7 @@ public class Main {
         cat.Speak();
         */
         //Abstract Factory example
+        /*
         Application app;
         String osName = System.getProperty("os.name").toLowerCase();
         if(osName.contains("mac")){
@@ -22,5 +27,14 @@ public class Main {
             app = new Application(new WindowsFactory());
         }
         app.clickButton();
+        */
+        //Builder Design Pattern
+        Cocinero cocinero = new Cocinero();
+        PizzaBuilder hawaiana = new HawaianaPizzaBuilder();
+
+        cocinero.setPizzaBuilder(hawaiana);
+        cocinero.construirPizza();
+        Pizza pizza = cocinero.getPizza();
+        System.out.println(pizza.getMasa() + " " + pizza.getSalsa() + " " + pizza.getTopping());
     }
 }
