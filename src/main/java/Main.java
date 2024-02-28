@@ -1,3 +1,4 @@
+import patronesCreacionales.Prototype.Shape;
 import patronesCreacionales.abstractFactory.Application;
 import patronesCreacionales.abstractFactory.MacOsFactory;
 import patronesCreacionales.abstractFactory.WindowsFactory;
@@ -29,12 +30,18 @@ public class Main {
         app.clickButton();
         */
         //Builder Design Pattern
+        /*
         Cocinero cocinero = new Cocinero();
         PizzaBuilder hawaiana = new HawaianaPizzaBuilder();
 
         cocinero.setPizzaBuilder(hawaiana);
         cocinero.construirPizza();
         Pizza pizza = cocinero.getPizza();
-        System.out.println(pizza.getMasa() + " " + pizza.getSalsa() + " " + pizza.getTopping());
+        System.out.println(pizza.getMasa() + " " + pizza.getSalsa() + " " + pizza.getTopping());*/
+        Shape shape = new Shape();
+        shape.setType("Rectangle");
+        Shape formaClone = (Shape) shape.clonar();
+
+        System.out.println(formaClone);
     }
 }
