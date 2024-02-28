@@ -1,4 +1,5 @@
 import patronesCreacionales.Prototype.Shape;
+import patronesCreacionales.Singleton.Conection;
 import patronesCreacionales.abstractFactory.Application;
 import patronesCreacionales.abstractFactory.MacOsFactory;
 import patronesCreacionales.abstractFactory.WindowsFactory;
@@ -38,10 +39,17 @@ public class Main {
         cocinero.construirPizza();
         Pizza pizza = cocinero.getPizza();
         System.out.println(pizza.getMasa() + " " + pizza.getSalsa() + " " + pizza.getTopping());*/
+        //Patron Prototype
+        /*
         Shape shape = new Shape();
         shape.setType("Rectangle");
         Shape formaClone = (Shape) shape.clonar();
 
         System.out.println(formaClone);
+
+         */
+        Conection conection = Conection.getInstance();
+        conection.conect();
+        conection.disconnect();
     }
 }
