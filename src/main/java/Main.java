@@ -7,6 +7,7 @@ import patronesCreacionales.builder.Cocinero;
 import patronesCreacionales.builder.HawaianaPizzaBuilder;
 import patronesCreacionales.builder.Pizza;
 import patronesCreacionales.builder.PizzaBuilder;
+import patronesEstructurales.Bridge.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -48,8 +49,20 @@ public class Main {
         System.out.println(formaClone);
 
          */
+        /* Patron Abstract incompleto
         Conection conection = Conection.getInstance();
         conection.conect();
-        conection.disconnect();
+        conection.disconnect();*/
+
+        //Patron Bridge implementación
+        Workshop mechanicalWorkshop = new MechanicalWorkshop();
+        Workshop paintingWorkshop = new PaintingWorkshop();
+
+        Vehicle car = new Car(mechanicalWorkshop);
+        Vehicle motorcycle = new Motorcicle(paintingWorkshop);
+
+        car.repair();
+        motorcycle.repair();
+
     }
 }
